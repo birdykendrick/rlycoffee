@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --nav-height: 72px;
+    --banner-height: 40px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background-color: #B08457;
+    color: #FAF7F2;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #B08457;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-espresso text-cream px-8 py-3.5 text-sm font-sans font-medium tracking-widest uppercase transition-all duration-300 hover:bg-espresso-light hover:gap-3 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border border-espresso text-espresso px-8 py-3.5 text-sm font-sans font-medium tracking-widest uppercase transition-all duration-300 hover:bg-espresso hover:text-cream hover:gap-3 active:scale-95;
+  }
+
+  .btn-caramel {
+    @apply inline-flex items-center gap-2 bg-caramel text-cream px-8 py-3.5 text-sm font-sans font-medium tracking-widest uppercase transition-all duration-300 hover:bg-caramel-light hover:gap-3 active:scale-95;
+  }
+
+  .section-pad {
+    @apply py-20 md:py-32;
+  }
+
+  .container-rly {
+    @apply mx-auto max-w-7xl px-5 md:px-10 lg:px-16;
+  }
+
+  .nav-link {
+    @apply relative text-xs tracking-widest uppercase font-sans font-medium text-espresso/70 transition-colors hover:text-espresso after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-caramel after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  .nav-link-active {
+    @apply text-espresso after:w-full;
+  }
+
+  .badge {
+    @apply inline-block px-2.5 py-0.5 text-[10px] font-sans font-semibold tracking-widest uppercase;
+  }
+
+  .badge-sale {
+    @apply badge bg-caramel text-cream;
+  }
+
+  .badge-limited {
+    @apply badge bg-rose text-cream;
+  }
+
+  .badge-sold {
+    @apply badge bg-mist text-cream;
+  }
+
+  .badge-fav {
+    @apply badge bg-espresso text-cream;
+  }
+
+  .roast-pip {
+    @apply w-2 h-2 rounded-full;
+  }
+}
+
+/* Grain texture overlay */
+.grain::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.03;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F3EEE7;
+}
+::-webkit-scrollbar-thumb {
+  background: #B08457;
+  border-radius: 3px;
+}
