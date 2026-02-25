@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,8 +12,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 
 export default function ProductPage({ params }: { params: { slug: string } }) {
-  const product = products.find((p) => p.slug === params.slug);
-  if (!product) notFound();
+  // Find once, then narrow type so product is never undefined
+  const found = products.find((p) => p.slug === params.slug);
+  if (!found) notFound();
+  const product = found;
 
   const { dispatch } = useCart();
   const [selectedWeight, setSelectedWeight] = useState(product.weights[0]);
