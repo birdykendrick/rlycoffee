@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* THEN your custom layers */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-espresso text-cream px-8 py-3.5 text-sm font-sans font-medium tracking-widest uppercase transition-all duration-300 hover:bg-espresso-light hover:gap-3 active:scale-95;
+  }
+}
+
 @layer base {
   :root {
     --nav-height: 72px;
