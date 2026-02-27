@@ -34,8 +34,8 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-cream/60">
               <li>Shipping within Singapore</li>
               <li>Roasted to order</li>
-              <li>3–5 day delivery</li>
-              <li>Free shipping over $60</li>
+              <li>1-2 days delivery</li>
+              <li>Free shipping over $25</li>
             </ul>
           </div>
 
@@ -44,7 +44,7 @@ export default function Footer() {
             <p className="text-[10px] tracking-widest uppercase text-cream/40 mb-5 font-semibold">Connect</p>
             <div className="flex flex-col gap-4">
               <a
-                href="https://instagram.com/rlycoffee"
+                href="https://www.instagram.com/rlycoffee/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-sm text-cream/60 hover:text-cream transition-colors"
@@ -52,7 +52,7 @@ export default function Footer() {
                 <Instagram size={16} /> @rlycoffee
               </a>
               <a
-                href="https://wa.me/6512345678"
+                href="https://wa.me/6596265388"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-sm text-cream/60 hover:text-cream transition-colors"
@@ -63,7 +63,7 @@ export default function Footer() {
                 href="mailto:hello@rlycoffee.com"
                 className="flex items-center gap-3 text-sm text-cream/60 hover:text-cream transition-colors"
               >
-                <Mail size={16} /> hello@rlycoffee.com
+                <Mail size={16} /> khoomaverick@gmail.com
               </a>
             </div>
           </div>
