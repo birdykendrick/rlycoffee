@@ -23,7 +23,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: { default: "RLY Coffee — Specialty Coffee, Roasted Fresh in Singapore", template: "%s | RLY Coffee" },
+  title: { default: "RlyCoffee", template: "%s | RLY Coffee" },
   description: "Specialty beans without the specialty markup. Roasted fresh in Singapore, delivered to your door.",
   openGraph: {
     siteName: "RLY Coffee",
