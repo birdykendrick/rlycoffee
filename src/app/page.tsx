@@ -72,11 +72,11 @@ export default function HomePage() {
     {/* Body copy */}
     <FadeIn delay={0.4}>
       <p className="font-sans text-sm md:text-base text-cream/70 max-w-sm md:max-w-md mb-10 leading-[1.8] tracking-wide">
-        At Rly Coffee, we're all about bringing great coffee to everyone.{" "}
-        <span className="text-cream/90 font-medium">
-          Real, Roasted, Right To Your Doorstep.
-        </span>
-      </p>
+  At Rly Coffee, we&apos;re all about bringing great coffee to everyone.{" "}
+  <span className="text-cream/90 font-medium">
+    Real, Roasted, Right To Your Doorstep.
+  </span>
+</p>
     </FadeIn>
 
     {/* CTA */}
