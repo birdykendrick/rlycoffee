@@ -5,15 +5,7 @@ import ProductCard from "@/components/ui/ProductCard";
 import FadeIn from "@/components/ui/FadeIn";
 import { ChevronDown } from "lucide-react";
 
-type Filter = "all" | "single-origin" | "blend" | "seasonal";
 type Sort = "featured" | "price-asc" | "price-desc" | "name";
-
-const filters: { label: string; value: Filter }[] = [
-  { label: "All", value: "all" },
-  { label: "Single Origin", value: "single-origin" },
-  { label: "Blends", value: "blend" },
-  { label: "Seasonal", value: "seasonal" },
-];
 
 const sorts: { label: string; value: Sort }[] = [
   { label: "Featured", value: "featured" },
@@ -23,62 +15,48 @@ const sorts: { label: string; value: Sort }[] = [
 ];
 
 export default function ShopPage() {
-  const [filter, setFilter] = useState<Filter>("all");
   const [sort, setSort] = useState<Sort>("featured");
 
-  const filtered = useMemo(() => {
-    let list = filter === "all" ? products : products.filter((p) => p.category === filter);
+  const sorted = useMemo(() => {
+    let list = [...products];
     switch (sort) {
       case "price-asc":
-        list = [...list].sort((a, b) => (a.salePrice ?? a.price) - (b.salePrice ?? b.price));
-        break;
+        return list.sort((a, b) => (a.salePrice ?? a.price) - (b.salePrice ?? b.price));
       case "price-desc":
-        list = [...list].sort((a, b) => (b.salePrice ?? b.price) - (a.salePrice ?? a.price));
-        break;
+        return list.sort((a, b) => (b.salePrice ?? b.price) - (a.salePrice ?? a.price));
       case "name":
-        list = [...list].sort((a, b) => a.name.localeCompare(b.name));
-        break;
+        return list.sort((a, b) => a.name.localeCompare(b.name));
       default:
-        list = [...list].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+        return list.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
     }
-    return list;
-  }, [filter, sort]);
+  }, [sort]);
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-oat py-20 md:py-28 border-b border-oat-dark">
-        <div className="container-rly text-center">
+      {/* Hero Banner */}
+      <section className="relative w-full h-[280px] md:h-[340px] overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=2400&q=80"
+          alt="Coffee beans"
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-espresso/50" />
+        {/* Text */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <FadeIn>
-            <p className="text-xs font-sans tracking-widest uppercase text-caramel mb-4">Our Selection</p>
-            <h1 className="font-serif text-display-lg text-espresso mb-4">The Coffees</h1>
-            <p className="font-sans text-espresso/60 max-w-md mx-auto leading-relaxed">
+            <p className="text-xs font-sans tracking-widest uppercase text-cream/80 mb-3">Our Selection</p>
+            <h1 className="font-serif text-display-lg text-cream mb-3">The Coffees</h1>
+            <p className="font-sans text-cream/70 max-w-md mx-auto leading-relaxed text-sm">
               Sourced, roasted, and packed with care. All specialty-grade, all under your budget.
             </p>
           </FadeIn>
         </div>
       </section>
 
-      {/* Filters */}
+      {/* Sort bar */}
       <section className="sticky top-[var(--nav-height)] z-30 bg-cream border-b border-oat-dark">
-        <div className="container-rly py-4 flex items-center justify-between gap-4">
-          {/* Category filters */}
-          <div className="flex items-center gap-1 overflow-x-auto pb-0 scrollbar-none">
-            {filters.map((f) => (
-              <button
-                key={f.value}
-                onClick={() => setFilter(f.value)}
-                className={`px-4 py-2 text-xs font-sans tracking-widest uppercase whitespace-nowrap transition-all duration-200 ${filter === f.value
-                    ? "bg-espresso text-cream"
-                    : "text-espresso/60 hover:text-espresso"
-                  }`}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Sort */}
+        <div className="container-rly py-4 flex items-center justify-end gap-4">
           <div className="relative flex-shrink-0">
             <select
               value={sort}
@@ -94,19 +72,15 @@ export default function ShopPage() {
         </div>
       </section>
 
-      {/* Grid */}
-      <section className="section-pad bg-cream">
+      {/* Grid — pt-4 to reduce the gap */}
+      <section className="bg-cream pt-4 pb-16 md:pb-24">
         <div className="container-rly">
-          <p className="text-xs font-sans text-mist mb-8">{filtered.length} coffees</p>
-          {filtered.length === 0 ? (
-            <p className="text-center py-20 font-serif text-2xl text-espresso/30">No coffees in this category</p>
-          ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
-              {filtered.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-          )}
+          <p className="text-xs font-sans text-mist mb-6">{sorted.length} Coffee Flavours</p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+            {sorted.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
         </div>
       </section>
     </>
