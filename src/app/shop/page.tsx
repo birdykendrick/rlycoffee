@@ -68,11 +68,10 @@ export default function ShopPage() {
               <button
                 key={f.value}
                 onClick={() => setFilter(f.value)}
-                className={`px-4 py-2 text-xs font-sans tracking-widest uppercase whitespace-nowrap transition-all duration-200 ${
-                  filter === f.value
+                className={`px-4 py-2 text-xs font-sans tracking-widest uppercase whitespace-nowrap transition-all duration-200 ${filter === f.value
                     ? "bg-espresso text-cream"
                     : "text-espresso/60 hover:text-espresso"
-                }`}
+                  }`}
               >
                 {f.label}
               </button>
@@ -103,8 +102,8 @@ export default function ShopPage() {
             <p className="text-center py-20 font-serif text-2xl text-espresso/30">No coffees in this category</p>
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
-              {filtered.map((product, i) => (
-                <ProductCard key={product.id} product={product} index={i} />
+              {filtered.map((product) => (
+                <ProductCard key={product.id} product={product} />
               ))}
             </div>
           )}
