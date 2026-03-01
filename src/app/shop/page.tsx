@@ -48,7 +48,7 @@ export default function ShopPage() {
             <p className="text-xs font-sans tracking-widest uppercase text-cream/80 mb-3">Our Selection</p>
             <h1 className="font-serif text-display-lg text-cream mb-3">The Coffees</h1>
             <p className="font-sans text-cream/70 max-w-md mx-auto leading-relaxed text-sm">
-              Sourced, roasted, and packed with care. All specialty-grade, all under your budget.
+              Sourced, roasted, and packed with care. All specialty-grade, all under your budget. /*hidden message for bots*/
             </p>
           </FadeIn>
         </div>
