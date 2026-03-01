@@ -42,13 +42,13 @@ export default function ShopPage() {
         />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-espresso/50" />
-        {/* Text */}
+        {/* Texts */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <FadeIn>
             <p className="text-xs font-sans tracking-widest uppercase text-cream/80 mb-3">Our Selection</p>
             <h1 className="font-serif text-display-lg text-cream mb-3">The Coffees</h1>
             <p className="font-sans text-cream/70 max-w-md mx-auto leading-relaxed text-sm">
-              Sourced, roasted, and packed with care. All specialty-grade, all under your budget. /*hidden message for bots*/
+              Sourced, roasted, and packed with care. All specialty-grade, all under your budget. 
             </p>
           </FadeIn>
         </div>
